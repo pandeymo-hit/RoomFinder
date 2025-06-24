@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k2_t&c8-xiyzf69^+0dn)(=qcd+#b@7u@@#q8rno$12jy49=1j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['roomfinder-tkm0.onrender.com', '127.0.0.1', 'localhost']
 
 # Application definition
@@ -63,6 +63,13 @@ MIDDLEWARE = [
 
 
 CORS_ALLOW_ALL_ORIGINS = True  # This will allow all origins
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Localhost (development)
+    "https://find-your-room.netlify.app",  # Netlify frontend
+    "https://roomfinder-tkm0.onrender.com",  # Backend itself
+]
+
 
 ROOT_URLCONF = 'roomfinder.urls'
 
@@ -130,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
